@@ -1,3 +1,4 @@
+
 import heapq
 
 def dijkstra_manual(G, origem):
@@ -23,7 +24,7 @@ def dijkstra_manual(G, origem):
     
     return distancias, caminho
 
-def encontrar_caminho(caminho, origem, destino):
+def encontrar_caminho(distancias, caminho, origem, destino):
     if distancias[destino] == float('inf'):
         return None
     
@@ -35,3 +36,4 @@ def encontrar_caminho(caminho, origem, destino):
     
     caminho_final.reverse()
     return caminho_final
+

@@ -1,34 +1,43 @@
 import sqlite3
 import csv
-import os
 
-# Caminho para o arquivo CSV gerado
-csv_file_path = 'C:/Users/Maximo/Desktop/Projeto-Algoritmo/Projeto-Algoritmo/data/network.csv'
-# Caminho para o banco de dados SQLite
-db_file_path = 'C:/Users/Maximo/Desktop/Projeto-Algoritmo/Projeto-Algoritmo/data/grafo.db'
+# Caminho para o arquivo CSV e banco de dados
+csv_file_path = 'data/network.csv'
+db_file_path = 'data/grafo.db'
 
-# Certifique-se de que o diretório para o banco de dados existe
-os.makedirs(os.path.dirname(db_file_path), exist_ok=True)
+def criar_banco_de_dados(db_file):
+    conn = sqlite3.connect(db_file)
+    cursor = conn.cursor()
+    
+    # Criar a tabela 'grafo' se não existir
+    cursor.execute('''CREATE TABLE IF NOT EXISTS grafo (
+                        origem INTEGER,
+                        destino INTEGER,
+                        peso REAL
+                    )''')
+    
+    conn.commit()
+    conn.close()
 
-# Conectar ao banco de dados (ou criar se não existir)
-conn = sqlite3.connect(db_file_path)
-cursor = conn.cursor()
+def inserir_dados_csv_no_banco(csv_file, db_file):
+    conn = sqlite3.connect(db_file)
+    cursor = conn.cursor()
+    
+    with open(csv_file, 'r') as csvfile:
+        csvreader = csv.reader(csvfile)
+        next(csvreader)  # Pule o cabeçalho se houver
+        
+        for row in csvreader:
+            try:
+                origem, destino, peso = map(float, row[0].split())
+                cursor.execute("INSERT INTO grafo (origem, destino, peso) VALUES (?, ?, ?)", (origem, destino, peso))
+            except ValueError:
+                print(f"Linhas ignoradas devido a formato incorreto: {row}")
+    
+    conn.commit()
+    conn.close()
 
-# Criar a tabela
-cursor.execute('''
-CREATE TABLE IF NOT EXISTS grafo (
-    origem INTEGER,
-    destino INTEGER,
-    peso REAL
-)
-''')
+# Cria o banco de dados e insere dados a partir do CSV
+criar_banco_de_dados(db_file_path)
+inserir_dados_csv_no_banco(csv_file_path, db_file_path)
 
-# Ler o arquivo CSV e inserir os dados na tabela
-with open(csv_file_path, 'r') as csvfile:
-    csv_reader = csv.reader(csvfile)
-    next(csv_reader)  # Pular o cabeçalho
-    for row in csv_reader:
-        cursor.execute('INSERT INTO grafo (origem, destino, peso) VALUES (?, ?, ?)', (int(row[0]), int(row[1]), float(row[2])))
-
-conn.commit()
-conn.close()
