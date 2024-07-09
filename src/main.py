@@ -1,5 +1,3 @@
-# main.py
-
 import tkinter as tk
 from tkinter import simpledialog, messagebox
 import networkx as nx
@@ -22,7 +20,7 @@ def main():
 
         try:
             distancias, caminho = dijkstra_manual(G, origem)
-            caminho_final = encontrar_caminho(distancias, caminho, origem, destino)  # Ajustado para quatro argumentos
+            caminho_final = encontrar_caminho(distancias, caminho, origem, destino)
             if caminho_final is not None:
                 caminho_str = ' -> '.join(map(str, caminho_final))
                 messagebox.showinfo("Resultado", f"Menor caminho: {caminho_str}\nDistância: {distancias[destino]}")

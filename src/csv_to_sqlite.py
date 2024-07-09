@@ -37,7 +37,6 @@ def inserir_dados_csv_no_banco(csv_file, db_file):
     conn.commit()
     conn.close()
 
-# Cria o banco de dados e insere dados a partir do CSV
-criar_banco_de_dados(db_file_path)
-inserir_dados_csv_no_banco(csv_file_path, db_file_path)
-
+if __name__ == "__main__":
+    criar_banco_de_dados(db_file_path)
+    inserir_dados_csv_no_banco(csv_file_path, db_file_path)
