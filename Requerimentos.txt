@@ -1,2 +1,7 @@
-matplotlib
+Python 3.x
+Bibliotecas necessárias:
+scipy
+sqlite3
 networkx
+matplotlib
+tkinter

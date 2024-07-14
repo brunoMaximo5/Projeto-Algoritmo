@@ -8,7 +8,7 @@ from dijkstra import dijkstra_manual, encontrar_caminho
 
 def main():
     # Definir o caminho para o banco de dados
-    db_path = 'data/grafo.db'
+    db_path = 'C:\\Users\\Maximo\\Desktop\\Projeto-Algoritmo\\Projeto-Algoritmo\\data\\grafo.db'
     
     # Carregar o grafo a partir do banco de dados
     G = carregar_grafo(db_path)

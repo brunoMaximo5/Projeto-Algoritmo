@@ -5,7 +5,7 @@ import csv
 mtx_file_path = 'C:\\Users\\Maximo\\Desktop\\Projeto-Algoritmo\\Projeto-Algoritmo\\data\\bio-celegans.mtx'
 
 # Caminho para o arquivo CSV de saída
-csv_file_path = 'data\\network.csv'
+csv_file_path = 'C:\\Users\\Maximo\\Desktop\\Projeto-Algoritmo\\Projeto-Algoritmo\\data\\network.csv'
 
 def converter_mtx_para_csv(mtx_file_path, csv_file_path):
     # Ler o arquivo MTX

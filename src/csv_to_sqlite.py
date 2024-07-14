@@ -2,10 +2,13 @@ import sqlite3
 import csv
 
 # Caminho para o arquivo CSV e banco de dados
-csv_file_path = 'data/network.csv'
-db_file_path = 'data/grafo.db'
+csv_file_path = 'C:\\Users\\Maximo\\Desktop\\Projeto-Algoritmo\\Projeto-Algoritmo\\data\\network.csv'
+
+db_file_path = 'C:\\Users\\Maximo\\Desktop\\Projeto-Algoritmo\\Projeto-Algoritmo\\data\\grafo.db'
+
 
 def criar_banco_de_dados(db_file):
+    conn = sqlite3.connect(db_fil:
     conn = sqlite3.connect(db_file)
     cursor = conn.cursor()
     
