@@ -33,7 +33,7 @@ Para instalar as dependências, execute:
 
 ```bash
 pip install scipy networkx matplotlib
-
+```
 ## Como Usar
 
 1. **Converter o arquivo .mtx para .csv:**
