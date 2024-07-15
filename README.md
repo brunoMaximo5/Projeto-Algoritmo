@@ -47,4 +47,7 @@ pip install scipy networkx matplotlib
    Na interface gráfica, insira os nós de origem e destino para calcular o menor caminho usando o algoritmo de Dijkstra.
 
 ## Vídeo de Apresentação
-[Link para o vídeo de apresentação](coloque aqui o link do seu vídeo)
+[https://youtu.be/wPDYXwikbV0?si=4xpJy7ueWfl-kBeu]
+
+## Link do Slide
+[https://www.canva.com/design/DAGKXa-534U/8UqnmBTEfGnqayiOO5Mfzg/edit]
